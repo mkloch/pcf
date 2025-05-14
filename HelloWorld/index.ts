@@ -1,6 +1,7 @@
 import { IInputs, IOutputs } from "./generated/ManifestTypes";
 
 export class HelloWorld implements ComponentFramework.StandardControl<IInputs, IOutputs> {
+     private _container: HTMLDivElement;
     /**
      * Empty constructor.
      */
@@ -23,6 +24,17 @@ export class HelloWorld implements ComponentFramework.StandardControl<IInputs, I
         container: HTMLDivElement
     ): void {
         // Add control initialization code
+          this._container = container;
+            const helloDiv = document.createElement("div");
+             helloDiv.innerText = "Hello, World!";
+
+        //
+        // NEWLY ADDED
+        //
+        // Append the div to the container
+        // This is similar to using the `Collect` function in a canvas app component
+        //
+        this._container.appendChild(helloDiv);
     }
 
 
